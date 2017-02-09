@@ -63,10 +63,11 @@ public class MainActivity extends AppCompatActivity {
 
         tip = Double.parseDouble(amountEditText.getText().toString());
         tip = tip * tipRate;
-        totalTipTextView.setText("Total Tip: " + tip.toString());
+
+        totalTipTextView.setText(String.format("Total Tip: $%.2f", tip));
 
 
         tipPerPersonAmount = tip / Double.parseDouble(partyEditText.getText().toString());
-        tipPersonTextView.setText("Tip per Person: " + tipPerPersonAmount.toString());
+        tipPersonTextView.setText(String.format("Tip per Person: $%.2f", tipPerPersonAmount));
     }
 }
