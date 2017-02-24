@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TipCalculator</string>
+    <string name="enterPeople">Enter number in party for tip per person.</string>
 </resources>
