@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     CheckBox poorCB;
     CheckBox goodCB;
     CheckBox greatCB;
+    CheckBox customCB;
+    EditText customET;
 
     //Parameters for toast to handle null text for bill amount.
     Context amountContext;
@@ -92,7 +94,21 @@ public class MainActivity extends AppCompatActivity {
         poorCB = (CheckBox) findViewById(R.id.poorCheckBox);
         goodCB = (CheckBox) findViewById(R.id.goodCheckBox);
         greatCB = (CheckBox) findViewById(R.id.greatCheckBox);
+        customCB = (CheckBox) findViewById(R.id.customCheckBox);
+        customET = (EditText) findViewById(R.id.customEditText);
+    }
 
+    //Determine if user wants to enter a custom tip percent.
+    public void onChecked(View view)
+    {
+        if(customCB.isChecked())
+        {
+            customET.setEnabled(true);
+        }
+        else
+        {
+            customET.setEnabled(false);
+        }
     }
 
     public void calculateClick(View view)
@@ -125,6 +141,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
+        else if(customCB.isChecked())
+        {
+            //Grab user input and divide it by 100 to use as percentage.
+            tipRate = Double.parseDouble(customET.getText().toString()) / 100;
+        }
 
         //CharSequence is set and makeText is called now that CharSequence has been correctly set.
         percentText = "Tip Percent: " + Double.toString(tipRate * 100);
@@ -144,6 +165,7 @@ public class MainActivity extends AppCompatActivity {
             percentToast.show();
 
         }
+
         totalTipTextView.setText(String.format("Total Tip: $%.2f", tip));
 
         if(TextUtils.isEmpty(partyEditText.getText().toString()) || Integer.parseInt(partyEditText.getText().toString()) < 2)

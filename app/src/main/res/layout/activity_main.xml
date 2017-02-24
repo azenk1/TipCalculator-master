@@ -65,12 +65,29 @@
         android:layout_height="wrap_content" />
 
     <CheckBox
-            android:id="@+id/greatCheckBox"
+        android:id="@+id/greatCheckBox"
         android:padding="3dp"
         android:clickable="true"
         android:text="Great Service"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <CheckBox
+        android:id="@+id/customCheckBox"
+        android:padding="3dp"
+        android:clickable="true"
+        android:text="Custom Percent"
+        android:onClick="onChecked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:inputType="number"
+        android:id="@+id/customEditText"
+        android:hint="Enter Percent For Tip"/>
 
     <Button
         android:id="@+id/calculateButton"
